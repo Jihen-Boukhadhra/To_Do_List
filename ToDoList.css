@@ -1,0 +1,265 @@
+
+:root {
+  --body-bg: #fbfbfb22;
+  --body-color: #222251;
+  --todo-bg: #526da4;
+  --newtask-bg: white;
+  --add-bg: rgb(178, 197, 223);
+  --blue: #032645;
+  --blue: #23496a;
+  --purple: #644eac;
+  --bgbtn-bg: rgb(164, 160, 193);
+  --bgbtn-color: #0c0c0c;
+}
+
+.dark_mode {
+  --body-bg: #040b31;
+  --body-color: #ffffff;
+  --todo-bg: #4071b1;
+  --newtask-bg: #0c1431;
+  --add-bg: #5545ce;
+  --blue: #6577c9;
+  --grey: #3d4762;
+  --bgbtn-bg: #2d3c6e;
+  --bgbtn-color: white;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: content-box;
+  list-style: none;
+}
+
+html {
+  font-size: 20px;
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+input[type="text"] {
+  color: inherit;
+  border: 0.30px solid rgba(128, 128, 128, 0.8);
+  outline: none;
+  background-color: transparent;
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  height: 100vh;
+  transition: 0.15s ease-out;
+  background-color: var(--body-bg);
+  color: var(--body-color);
+}
+
+.wrapper {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#new-task {
+  font-size: 1.5rem;
+  background-color: var(--newtask-bg);
+}
+
+.todo-container {
+  width: 900px;
+  background-color: var(--todo-bg);
+  border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  border: 1px solid #373737;
+}
+
+.add-todo {
+  display: flex;
+  justify-content: space-between;
+  background: var(--add-bg);
+  align-items: center;
+  gap: 8px;
+  padding: 1rem;
+  border-radius: 10px 10px 0 0px;
+}
+
+.add-todo input::placeholder {
+  color: rgba(128, 128, 128, 0.8);
+  font-weight: 500;
+  caret-color: rgba(128, 128, 128, 0.8);
+}
+
+.bg-button {
+  background-color: var(--bgbtn-bg);
+  color: var(--bgbtn-color);
+}
+
+.btn-add {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(19, 24, 134);
+  color: rgb(247, 245, 245);
+  font-weight: 600;
+  font-size: 1.5rem;
+  cursor: pointer;
+  outline: none;
+  transition: 0.3s;
+}
+
+.btn-add:hover {
+  transform: translate(0px, -2px);
+}
+
+.completed-tasks-container,
+.incomplete-tasks-container {
+  padding: 8px 16px;
+  font-size: 1.2rem;
+  max-height: 310px;
+  overflow-y: auto;
+}
+
+.title {
+  margin-top: 1rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--green);
+  text-align: center;
+}
+
+.incomplete-task,
+.completed-task {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 16px 0;
+}
+
+.completed-task label {
+  text-decoration: line-through;
+  color: #433e78;
+}
+
+.label-container {
+  flex-grow: 1;
+  word-break: break-all;
+  margin: 0 16px 0 0;
+}
+
+.action-container {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-edit,
+.btn-delete {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  border: 1px solid white;
+  transition: transform 0.1s ease-out;
+  cursor: pointer;
+  background-color: var();
+}
+
+.btn-delete:hover {
+  transform: scale(1.1);
+}
+
+.btn-edit:hover {
+  transform: scale(1.1);
+}
+
+/* Edit Task */
+ul li input[type="text"] {
+  display: none;
+}
+
+ul li.editMode input[type="text"] {
+  display: block;
+  margin: 0 16px 0 0;
+  box-shadow: none;
+}
+
+ul li.editMode label {
+  display: none;
+  border: 0px solid;
+}
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.label {
+  cursor: pointer;
+  width: 44px;
+  height: 17px;
+  background-color: #515151;
+  display: flex;
+  border-radius: 50px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  position: relative;
+  transform: scale(1.5);
+  margin-right: 1.2em;
+}
+
+.ball {
+  width: 20px;
+  height: 20px;
+  background-color: rgb(126, 103, 201);
+  position: absolute;
+  top: 3px;
+  left: 5px;
+  border-radius: 50%;
+  transition: transform 0.2s ease-out;
+}
+
+.checkbox:checked + .label .ball {
+  transform: translateX(24px);
+}
+
+.bi-brightness-high-fill::before {
+  margin: 27px;
+  color: rgb(218, 218, 42);
+}
+
+.dark-mode-slider {
+  padding-bottom: 2em;
+  display: flex;
+  justify-content: end;
+  max-width: 900px;
+  width: 100%;
+  margin-inline: auto;
+}
+
+@media only screen and (max-width: 900px) {
+  html {
+    font-size: 16px;
+  }
+
+  .todo-container {
+    width: 100%;
+  }
+
+  .wrapper {
+    margin: 16px;
+  }
+}
